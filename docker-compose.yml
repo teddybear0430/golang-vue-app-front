@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  golang_vue_app_front:
+    container_name: golang_vue_app_front
+    tty: true
+    build: .
+    ports:
+      - 8080:8080
+    volumes: 
+      - ./app:/app
+    networks:
+      - golang_vue_app_network
+    command: yarn dev
+
+networks:
+  golang_vue_app_network:
+    external: true
